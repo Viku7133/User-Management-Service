@@ -5,6 +5,7 @@ import com.example.userService.exception.CustomException;
 import com.example.userService.external.adapter.PostalPinCodeAdapter;
 import com.example.userService.external.response.PinCodeResponseEntity;
 import com.example.userService.external.response.PostOfficeEntity;
+import com.example.userService.util.LoggerUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class PostOfficeService {
   public String getState(String pinCode) throws CustomException {
     List<PinCodeResponseEntity> pinCodeResponseEntities = postalPinCodeAdapter.getPostalPinCodeResponse(
         pinCode);
+    LoggerUtil.info("Post-Office-API Response : " + pinCodeResponseEntities.toString());
     if (CollectionUtils.isEmpty(pinCodeResponseEntities)) {
       return null;
     }

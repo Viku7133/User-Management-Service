@@ -40,8 +40,8 @@ public class UserManager {
     if (ObjectUtils.isEmpty(email)) {
       return Optional.empty();
     }
-    Optional<UserEntity> userEntity=  userRepository.findByEmailId(email);
-    if(userEntity.isPresent()){
+    Optional<UserEntity> userEntity = userRepository.findByEmailId(email);
+    if (userEntity.isPresent()) {
       System.out.println(userEntity.get().toString());
     }
     return userEntity;
